@@ -2,7 +2,7 @@ package impl
 
 import (
 	. "github.com/guidomantilla/bookstore_users-api/common/db"
-	. "github.com/guidomantilla/bookstore_users-api/common/sql"
+	"github.com/guidomantilla/bookstore_users-api/common/db/stmt"
 	. "github.com/guidomantilla/bookstore_users-api/core/model"
 )
 
@@ -134,7 +134,7 @@ func (userRepository *DefaultUserRepository) Find(paramMap map[string][]string) 
 
 	database := userRepository.mysqlDataSource.GetDatabase()
 
-	whereCondition := BuildWhere(paramMap)
+	whereCondition := stmt.BuildWhere(paramMap)
 	statement, err := database.Prepare(STATEMENT_FIND + whereCondition)
 	if err != nil {
 		return nil, err
