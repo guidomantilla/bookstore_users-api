@@ -16,7 +16,7 @@ type DefaultUserWs struct {
 	userService UserService
 }
 
-func NewUserWs(userService UserService) *DefaultUserWs {
+func NewDefaultUserWs(userService UserService) *DefaultUserWs {
 	return &DefaultUserWs{
 		userService: userService,
 	}

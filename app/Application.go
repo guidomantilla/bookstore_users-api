@@ -65,7 +65,7 @@ func Wire() (ManagementWs, UserWs) {
 	mysqlDataSource := NewMysqlDataSource(username, password, url)
 	userRepository := NewDefaultUserRepository(mysqlDataSource)
 	userService := NewDefaultUserService(userRepository)
-	userWs := NewUserWs(userService)
+	userWs := NewDefaultUserWs(userService)
 
 	return managementWs, userWs
 }
