@@ -1,6 +1,6 @@
 FROM golang:1.14.2-alpine3.11 AS builder
 
-# Set necessary environmet variables needed for our image
+# Set necessary environmet variables needed for our builder image
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
@@ -26,8 +26,14 @@ WORKDIR /dist
 # Copy binary from build to main folder
 RUN cp /build/main .
 
-# Build a small image
+# Build a small running image
 FROM scratch
+
+# Set necessary environmet variables needed for our running image
+ENV BOOKSTORE_USERS_DATASOURCE_URL=':username::password@tcp(toolbox.mysql:3306)/bookstore-users?charset=utf8' \
+    BOOKSTORE_USERS_DATASOURCE_USERNAME='root' \
+    BOOKSTORE_USERS_DATASOURCE_PASSWORD='toolbox123*' \
+    BOOKSTORE_USERS_ENVIRONMENT='dev'
 
 COPY --from=builder /dist/main /
 
