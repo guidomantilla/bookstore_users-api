@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	. "github.com/guidomantilla/bookstore_users-api/common/exception"
+	. "github.com/guidomantilla/bookstore_common-lib/common/exception"
 	. "github.com/guidomantilla/bookstore_users-api/core/model"
 	. "github.com/guidomantilla/bookstore_users-api/core/service"
 	. "github.com/guidomantilla/bookstore_users-api/core/ws/marshalling"

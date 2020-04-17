@@ -8,8 +8,8 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/crypto/bcrypt"
 
-	. "github.com/guidomantilla/bookstore_users-api/common/config"
-	. "github.com/guidomantilla/bookstore_users-api/common/exception"
+	. "github.com/guidomantilla/bookstore_common-lib/common/config"
+	. "github.com/guidomantilla/bookstore_common-lib/common/exception"
 	. "github.com/guidomantilla/bookstore_users-api/core/model"
 	. "github.com/guidomantilla/bookstore_users-api/core/repository"
 	. "github.com/guidomantilla/bookstore_users-api/core/service/validation"

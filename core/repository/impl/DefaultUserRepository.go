@@ -1,8 +1,8 @@
 package impl
 
 import (
-	. "github.com/guidomantilla/bookstore_users-api/common/db"
-	"github.com/guidomantilla/bookstore_users-api/common/db/stmt"
+	. "github.com/guidomantilla/bookstore_common-lib/common/db"
+	"github.com/guidomantilla/bookstore_common-lib/common/db/stmt"
 	. "github.com/guidomantilla/bookstore_users-api/core/model"
 )
 
