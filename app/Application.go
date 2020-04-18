@@ -29,15 +29,21 @@ func Init() {
 	ZapLogger.Info("starting the app")
 	router := gin.Default()
 
-	router.GET("/mgmt/health", managementWs.Health)
-	router.GET("/mgmt/env", managementWs.Env)
-	router.GET("/mgmt/info", managementWs.Info)
+	mgmt := router.Group("/mgmt")
+	{
+		mgmt.GET("/health", managementWs.Health)
+		mgmt.GET("/env", managementWs.Env)
+		mgmt.GET("/info", managementWs.Info)
+	}
 
-	router.POST("/api/users", userWs.Create)
-	router.GET("/api/users", userWs.Find)
-	router.PUT("/api/users/:id", userWs.Update)
-	router.DELETE("/api/users/:id", userWs.Delete)
-	router.GET("/api/users/:id", userWs.FindById)
+	api := router.Group("/api")
+	{
+		api.POST("/users", userWs.Create)
+		api.GET("/users", userWs.Find)
+		api.PUT("/users/:id", userWs.Update)
+		api.DELETE("/users/:id", userWs.Delete)
+		api.GET("/users/:id", userWs.FindById)
+	}
 
 	router.Run(":8080")
 }
