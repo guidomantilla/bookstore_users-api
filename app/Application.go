@@ -50,21 +50,16 @@ func Init() {
 
 func Config() {
 
-	ConfigProperties()
+	propertiesConfig := NewPropertiesConfig()
+	propertiesConfig.Config()
 
-	AddProperties(BOOKSTORE_USERS_DATASOURCE_URL, ":username::password@tcp(localhost:3306)/bookstore-users?charset=utf8")
-	AddProperties(BOOKSTORE_USERS_DATASOURCE_USERNAME, "root")
-	AddProperties(BOOKSTORE_USERS_DATASOURCE_PASSWORD, "toolbox123*")
-	AddProperties(BOOKSTORE_USERS_ENVIRONMENT, "dev")
+	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_URL, ":username::password@tcp(localhost:3306)/bookstore-users?charset=utf8")
+	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_USERNAME, "root")
+	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_PASSWORD, "toolbox123*")
+	propertiesConfig.Add(BOOKSTORE_USERS_ENVIRONMENT, "dev")
 
-	ConfigZapLogger(Properties[BOOKSTORE_USERS_ENVIRONMENT])
-}
-
-func AddProperties(prop string, value string) {
-
-	if Properties[prop] == "" {
-		Properties[prop] = value
-	}
+	zapLoggerConfig := NewZapLoggerConfig()
+	zapLoggerConfig.Config(Properties[BOOKSTORE_USERS_ENVIRONMENT])
 }
 
 func Wire() (ManagementWs, UserWs) {
