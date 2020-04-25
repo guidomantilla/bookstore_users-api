@@ -96,6 +96,7 @@ func (userService *DefaultUserService) Delete(id int64) *Exception {
 	if !exists {
 		return NotFoundException(DELETE_ERROR_TITLE, errors.New("user does not exist"))
 	}
+	
 	if err := userService.userRepository.Delete(id); err != nil {
 		return InternalServerErrorException(DELETE_ERROR_TITLE, err)
 	}
