@@ -30,9 +30,9 @@ RUN cp /build/main .
 FROM scratch
 
 # Set necessary environment variables needed for our running image
-ENV BOOKSTORE_USERS_DATASOURCE_URL=':username::password@tcp(toolbox.mysql:3306)/bookstore-users?charset=utf8' \
+ENV BOOKSTORE_USERS_DATASOURCE_URL=':username::password@tcp(bookstore-mysql:3306)/bookstore-users?charset=utf8' \
     BOOKSTORE_USERS_DATASOURCE_USERNAME='root' \
-    BOOKSTORE_USERS_DATASOURCE_PASSWORD='toolbox123*' \
+    BOOKSTORE_USERS_DATASOURCE_PASSWORD='r00t123!+' \
     BOOKSTORE_USERS_ENVIRONMENT='dev'
 
 COPY --from=builder /dist/main /

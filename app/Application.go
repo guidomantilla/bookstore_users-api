@@ -53,9 +53,9 @@ func Config() {
 	propertiesConfig := NewPropertiesConfig()
 	propertiesConfig.Config()
 
-	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_URL, ":username::password@tcp(localhost:3306)/bookstore-users?charset=utf8")
+	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_URL, ":username::password@tcp(localhost:3307)/bookstore-users?charset=utf8")
 	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_USERNAME, "root")
-	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_PASSWORD, "toolbox123*")
+	propertiesConfig.Add(BOOKSTORE_USERS_DATASOURCE_PASSWORD, "r00t123!+")
 	propertiesConfig.Add(BOOKSTORE_USERS_ENVIRONMENT, "dev")
 
 	zapLoggerConfig := NewZapLoggerConfig()
